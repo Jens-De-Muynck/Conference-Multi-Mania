@@ -1,0 +1,1 @@
+- Schedule zal het deleten van sessie niet aankunnen qua style... Waarschijnlijk JS???

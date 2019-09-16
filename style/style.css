@@ -1,0 +1,761 @@
+:root {
+    --main-lightgreen: #c0fcd1;
+    --main-neutralgreen: #82fab2;
+    --main-darkgreen: #20eda3;
+    --main-lightblue: #00d7bc;
+    --main-neutralblue: #009fb3;
+    --main-darkblue: #005887;
+}
+
+@font-face {
+    font-family: "NexaLight";
+    src: url(../fonts/NexaLight.otf) format("opentype");
+}
+
+@font-face {
+    font-family: "NexaBold";
+    src: url(../fonts/NexaBold.otf) format("opentype");
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    width: 100%;
+    height: 100%;
+    font-family: "NexaLight", sans-serif;
+}
+
+.bold {
+    font-family: "NexaBold", sans-serif;
+}
+
+/* NAVIGATIE */
+nav {
+    padding: 0% 3% !important;
+}
+
+.navbar-brand {
+    transform: translate(0, 25%);
+}
+
+.navbar-nav {
+    margin-right: 5%;
+    background-color: var(--main-lightgreen);
+    height: 10vh;
+    min-height: 100px;
+    border-radius: 0 0 50px 50px;
+}
+
+.navbar-nav li {
+    margin: 0 2vw;
+    padding: 30px 0;
+}
+
+.navbar-nav li a {
+    color: #005887;
+    opacity: 1;
+    /* underline */
+    position: relative;
+    text-decoration: none;
+}
+
+/* underline */
+nav a.active {
+    border-bottom: 3px solid var(--main-darkblue);
+    box-sizing: border-box;
+}
+
+.navbar-nav li a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -3px;
+    left: 0;
+    background-color: var(--main-darkblue);
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.navbar-nav li a:hover:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+/* end of underline */
+
+nav div.input-group {
+    max-width: 15vw;
+    height: 150%;
+}
+
+nav input {
+    /* input (en dergelijke) hebben important nodig om van kleur te kunnen veranderen */
+    height: 4rem !important;
+    border-radius: 5px 0 0 5px !important;
+    border: 1px solid var(--main-darkblue) !important;
+    background-color: var(--main-neutralgreen) !important;
+}
+
+nav .input-group {
+    border-radius: 5px !important;
+}
+
+nav .input-group .btn {
+    border: 1px solid var(--main-darkblue) !important;
+    background-color: var(--main-neutralgreen) !important;
+    border-radius: 0 5px 5px 0 !important;
+    width: 3vw;
+    font-size: 2rem;
+    color: var(--main-darkblue);
+}
+
+.smallnav{
+    display: none;
+}
+
+/* CAROUSEL */
+.carousel {
+    max-height: 100vh;
+    overflow: hidden;
+    background-color: var(--main-neutralblue);
+}
+
+.carousel img {
+    opacity: 0.1;
+    min-height: 100vh;
+    filter: blur(7px);
+}
+
+.content {
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+
+.content .desc {
+    height: 10vh;
+}
+
+.content h1 {
+    font-size: 10rem;
+    color: black;
+}
+
+.content h3 {
+    color: var(--main-lightgreen);
+    transform: rotate(-90deg);
+    font-size: 2.5vh;
+    height: 100%;
+    width: 10vh;
+}
+
+.content p {
+    color: white;
+}
+
+/* Articles */
+.articles {
+    background-color: var(--main-lightgreen);
+    padding: 5%;
+}
+
+.articles>h3 {
+    text-align: center;
+    margin-bottom: 3%;
+    margin-left: 50%;
+    transform: translate(-50%, 0);
+    display: inline-block;
+    font-size: 3rem;
+    color: var(--main-darkblue);
+    border-bottom: 2px solid var(--main-neutralblue);
+}
+
+.articles>div {
+    width: 90%;
+    margin: 3% auto;
+    max-height: 25%;
+}
+
+.articles .img-wrap,
+.article-wrap {
+    float: left;
+}
+
+.articles .img-wrap {
+    width: calc(100% / 3);
+    height: 100%;
+    position: relative;
+    box-shadow: 5px 5px 0px 0px var(--main-darkblue);
+    z-index: 2;
+}
+
+.articles .img-wrap img {
+    width: 100%;
+    height: 100%;
+    border: var(--main-neutralblue) 5px solid;
+    object-fit: cover;
+}
+
+.articles .img-wrap .color-overlay {
+    background-color: var(--main-darkblue);
+    opacity: 0.3;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.article-wrap {
+    width: calc(100% / (3 / 2));
+    background-color: white;
+    height: 90%;
+    box-shadow: 5px 5px 0px 0px var(--main-darkblue);
+    border: var(--main-neutralgreen) 3px solid;
+    padding: 5%;
+    position: relative;
+    z-index: 1;
+}
+
+.article-wrap h3 {
+    font-size: 3rem;
+    color: var(--main-darkblue);
+}
+
+.article-wrap p {
+    font-size: 2rem;
+}
+
+.article-wrap a {
+    font-size: 1.25rem;
+    background-color: var(--main-neutralgreen);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 2% 3% 1% 4%;
+    color: black;
+    border-radius: 5px 0 0 0;
+    text-decoration: none;
+}
+
+.article-wrap a i {
+    color: white;
+    transform: translate(50%, 15%);
+}
+
+/* Footer */
+/* -- lijst -- */
+
+footer {
+    background-color: var(--main-lightblue);
+}
+
+footer>div {
+    margin: 0 auto !important;
+}
+
+footer h4 {
+    font-size: 2.5rem;
+    /* border-top: var(--main-lightblue) 15px solid; */
+    background-color: var(--main-lightblue);
+    padding-top: 5%;
+    transform: translate(0, -25px);
+    text-align: center;
+    border-radius: 100px;
+}
+
+footer ul {
+    padding: 0;
+    padding-bottom: 10%;
+}
+
+footer li {
+    list-style-type: none;
+    margin: 3% 0;
+}
+
+footer a {
+    color: var(--main-darkblue);
+}
+
+footer i {
+    margin-right: 5%;
+}
+
+/* Sprekers */
+.sprekers {
+    padding: 12% 0 5% 0;
+    background: linear-gradient(0deg, rgba(130, 250, 178, 0.7), rgba(130, 250, 178, 0.7)), url(../images/writers.jpg);
+    background-size: cover;
+}
+
+.spreker {
+    display: inline-block;
+    width: calc(92% / 4);
+    background-color: var(--main-lightgreen);
+    margin: 2% 1%;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.spreker .img-wrap img {
+    width: 100%;
+}
+
+.aantalLikes,
+.heart {
+    position: absolute;
+    top: 0;
+}
+
+.aantalLikes {
+    background-color: var(--main-lightblue);
+    color: var(--main-darkblue);
+    padding: 2% 5%;
+    border-radius: 0 0 5px 0;
+    font-size: 1.5rem;
+    left: 0;
+}
+
+.heart {
+    right: 0;
+    font-size: 3rem;
+    padding: 2% 5%;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+}
+
+.bio-wrap {
+    padding: 5%;
+    width: 100%;
+}
+
+.bio-wrap h3 {
+    color: var(--main-darkblue);
+    font-size: 2rem;
+}
+
+.bio-wrap p {
+    font-size: 1.5rem;
+}
+
+.bio-wrap a {
+    display: block;
+    text-align: center;
+    padding: 2% 0;
+    width: 100%;
+    color: white;
+    background-color: var(--main-neutralblue);
+    border-radius: 5px;
+}
+
+/* -- sorter -- */
+.sorter {
+    margin-bottom: 1%;
+}
+
+.sorter a {
+    color: var(--main-darkblue);
+    opacity: 0.5;
+    border: 3px solid black;
+    border-radius: 5px;
+    padding: 0.5rem 2rem;
+    font-size: 2rem;
+    text-decoration: none;
+    margin-right: 1%;
+}
+
+.sorter a.active {
+    color: var(--main-lightgreen);
+    background-color: var(--main-neutralblue);
+    opacity: 1;
+    border: 3px solid var(--main-neutralblue);
+    border-radius: 5px;
+    padding: 0.5rem 2rem;
+    font-size: 2rem;
+}
+
+/* -- Page Nav -- */
+.pagenav a {
+    text-decoration: none;
+}
+
+.arrow {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    border: 2px solid var(--main-darkblue);
+    text-decoration: none;
+    margin: 2%;
+}
+
+.arrow i {
+    color: var(--main-darkblue);
+    font-size: 2rem;
+}
+
+.arrow.left i {
+    transform: translate(-10%, 0);
+}
+
+.arrow.right i {
+    transform: translate(10%, 0);
+}
+
+.pages {
+    width: 20%;
+}
+
+.pages a {
+    color: black;
+    padding: 2% 5%;
+    border-radius: 5px;
+}
+
+.pages a.active {
+    background-color: var(--main-lightgreen);
+}
+
+/* SCHEDULE */
+
+.schedule {
+    /* container */
+    width: 80vw;
+    padding: 10% 0 5% 0;
+    margin: 0 auto;
+    z-index: 0;
+}
+
+.schedule a{
+    color: black;
+}
+
+.schedule>div>* {
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
+}
+
+.schedule>div:last-child {
+    width: calc(100% / 6 * 4);
+}
+
+.schedule>div:nth-child(5) {
+    margin-top: 5%;
+}
+
+.m-flex {
+    /* rows */
+    display: flex;
+    justify-content: flex-start;
+}
+
+.cell {
+    width: calc(100% / 6);
+    margin: 10px;
+    padding: 1vw 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2vh;
+}
+
+.schedule>div:last-child>.cell {
+    width: calc(100% / 4);
+}
+
+.schedule-wrap {
+    z-index: -2;
+    background: linear-gradient(0deg, rgba(130, 250, 178, 0.7), rgba(130, 250, 178, 0.7)), url(../images/hall.jpg);
+    background-size: cover;
+}
+
+.time {
+    /* absolute bgc strip*/
+    background-color: var(--main-darkblue);
+    color: white;
+    height: 3vh;
+    margin-top: 3vh;
+    margin-left: 7vw;
+    padding-left: 2vw;
+    width: 92% !important;
+    position: absolute;
+    justify-content: flex-start;
+    z-index: 0;
+}
+
+/* -- head */
+.head,
+.head a {
+    border-radius: 2vh 2vh 0 0;
+    font-size: 3rem;
+    color: white;
+    height: 5vh;
+}
+
+.head:nth-child(even) {
+    background-color: var(--main-neutralblue);
+}
+
+.head:nth-child(odd) {
+    background-color: var(--main-darkblue);
+}
+
+/* -- sessie */
+.sessie {
+    text-align: center;
+    font-size: 1.8rem;
+    z-index: 1;
+}
+
+.sessie:nth-child(even) {
+    background-color: var(--main-lightblue);
+}
+
+.sessie:nth-child(odd) {
+    background-color: var(--main-neutralgreen);
+}
+
+.none {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* DETAIL SPREKER */
+.spreker-wrap {
+    padding: 12% 0 5% 0;
+    background: linear-gradient(0deg, rgba(130, 250, 178, 0.7), rgba(130, 250, 178, 0.7)), url(../images/meeting.jpg);
+    background-size: cover;
+}
+
+.detail_spreker {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.detail_spreker>div {
+    display: inline-block;
+}
+
+/* -- left col */
+.detail_spreker>div:first-child {
+    width: 30%;
+    background-color: var(--main-lightgreen);
+}
+
+.detail_spreker>div:first-child>div {
+    padding: 10% 10% 5% 10%;
+}
+
+.detail_spreker>div:first-child i {
+    font-size: 5rem;
+    color: var(--main-darkblue);
+}
+
+.detail_spreker>div:first-child p {
+    padding-bottom: 5%;
+    font-size: 1.8rem;
+    line-height: 150%;
+}
+
+.detail_spreker>div img {
+    width: 100%;
+    border: 10px solid var(--main-lightblue);
+}
+
+.detail_spreker.heart_fix .heart {
+    position: initial;
+}
+
+/* -- right col */
+.detail_spreker>div:last-child {
+    width: 68%;
+    margin-left: 2%;
+    padding: 5%;
+    background-color: var(--main-neutralblue);
+}
+
+.detail_spreker>div:last-child h1 {
+    font-size: 6rem;
+    color: var(--main-lightgreen);
+}
+
+.detail_spreker>div:last-child h3 {
+    font-size: 3rem;
+    color: var(--main-darkblue);
+}
+
+.detail_spreker .info {
+    margin-top: 15%;
+}
+
+.detail_spreker .info p {
+    font-size: 2rem;
+}
+
+.detail_spreker .info>div:first-child {
+    width: 50%;
+}
+
+.detail_spreker .info>div:last-child {
+    width: 40%;
+}
+
+.detail_spreker .info h2 {
+    padding-bottom: 50px;
+    font-size: 4rem;
+}
+
+.detail_spreker .info div:first-child {
+    color: white;
+}
+
+.detail_spreker .info div:last-child a {
+    color: black;
+}
+
+/* DETAIL ZAAL */
+.zaal-wrap {
+    padding: 10% 0 5% 0;
+    background: linear-gradient(0deg, rgba(130, 250, 178, 0.7), rgba(130, 250, 178, 0.7)), url(../images/meeting.jpg);
+    background-size: cover;
+}
+
+.zaal {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.zaal img {
+    border: 0.5vw solid var(--main-darkblue);
+}
+
+.zaal h1 {
+    border: solid var(--main-darkblue);
+    border-width: 0.5vw 0.5vw 0 0.5vw;
+    position: absolute;
+    width: calc(100% - 30px);
+    background-color: var(--main-lightgreen);
+    left: 15px;
+    right: 15px;
+    padding: 1vw 0;
+    font-size: 4vw;
+    color: var(--main-darkblue);
+}
+
+.zaal .sessie_detail {
+    margin: 5%;
+}
+
+.zaal .sessie_detail .timeStamp {
+    width: 50%;
+    background-color: var(--main-lightblue);
+    color: white;
+    border-radius: 15px 15px 0 0;
+    padding: 4% 0;
+    font-size: 1.5rem;
+    margin: 0;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
+}
+
+.zaal .sessie_detail .sessie_titel {
+    background-color: var(--main-lightgreen);
+    border-radius: 0 15px 15px 15px;
+    padding: 10% 0%;
+    font-size: 2rem;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.35);
+    min-height: 150px;
+    max-width: 20vw;
+}
+
+/* ADMIN */
+.admin{
+    padding: 10% 0 5% 0;
+    background: linear-gradient(0deg, rgba(130, 250, 178, 0.5), rgba(130, 250, 178, 0.5)), url(../images/admin.png);
+    background-size: cover;
+    background-attachment: fixed;
+}
+.admin a{
+    color: var(--main-darkblue);
+}
+.admin a:hover{
+    color: var(--main-neutralblue);
+}
+
+#admin_sessies{
+    width: 70%;
+    margin: 0 auto;
+}
+
+td img{
+    max-height: 150px;
+}
+
+@media screen and (max-width: 992px) {
+    .bignav{
+        display: none;
+    }
+    .smallnav{
+        display: initial;
+    }
+    
+    .navbar-brand {
+        transform: translate(0, 25%);
+    }
+    
+    .navbar-nav {
+        margin-right: 0;
+        height: initial;
+        min-height: initial;
+        border-radius: 0;
+        background-color: transparent;
+    }
+    
+    .navbar-nav li {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        background-color: var(--main-lightgreen);
+    }
+
+    .navbar-nav li:hover{
+        background-color: var(--main-neutralgreen);
+    }
+    
+    .navbar-nav li a {
+        color: #005887;
+        opacity: 1;
+        /* underline */
+        position: relative;
+        text-decoration: none;
+        padding: 2% 0;
+    }
+    
+    nav a.active {
+        border-bottom: none;
+    }
+    
+    .navbar-nav li a:hover:before {
+        visibility: hidden;
+    }
+
+    .smallnav .navbar{
+        background-color: var(--main-darkblue);
+        position: absolute;
+        top: 2vh;
+        left: 2vh;
+        padding: 0 !important;
+    }
+
+    .navbar-toggler span{
+        width: 5vh;
+        height: 5vh;
+    }
+}
